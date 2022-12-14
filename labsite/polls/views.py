@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 
@@ -24,6 +24,9 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
 
+
+def hello_world(request):
+    return HttpResponseRedirect('http://localhost:8001')
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
