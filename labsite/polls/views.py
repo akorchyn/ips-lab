@@ -1,9 +1,10 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 
 from .models import Choice, Question
+import requests
 
 
 class IndexView(generic.ListView):
@@ -26,7 +27,8 @@ class ResultsView(generic.DetailView):
 
 
 def hello_world(request):
-    return HttpResponseRedirect('http://localhost:8001')
+    r = requests.get('http://helloworld:8001')
+    return HttpResponse(r.text)
 
 def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)

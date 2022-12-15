@@ -1,5 +1,5 @@
 FROM python:3.7-alpine AS builder
-EXPOSE 8000
+EXPOSE 8080
 WORKDIR /app
 RUN apk update && apk upgrade && apk add bash 
 ENV PYTHONUNBUFFERED=1
