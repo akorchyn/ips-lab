@@ -27,7 +27,7 @@ class ResultsView(generic.DetailView):
 
 
 def hello_world(request):
-    r = requests.get('http://helloworld:8001')
+    r = requests.get('http://helloworld:8001') # Запит до койнера hello_world
     return HttpResponse(r.text)
 
 def vote(request, question_id):
